@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+:root {
+  --cream: #faf7f2;
+  --burgundy: #4a1c2b;
+  --gold: #c9a962;
+  --gold-light: #e8d5a8;
+  --rose: #f5ebe3;
+}
+
+@theme inline {
+  --color-cream: var(--cream);
+  --color-burgundy: var(--burgundy);
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-rose: var(--rose);
+  --font-sans: var(--font-heebo);
+  --font-display: var(--font-frank);
+}
+
+body {
+  background: var(--cream);
+  color: var(--burgundy);
+  font-family: var(--font-heebo), Arial, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-frank), Georgia, serif;
+}
+
+/* Decorative background */
+.page-bg {
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201, 169, 98, 0.18), transparent),
+    radial-gradient(ellipse 60% 40% at 100% 100%, rgba(74, 28, 43, 0.06), transparent),
+    radial-gradient(ellipse 50% 30% at 0% 80%, rgba(201, 169, 98, 0.1), transparent),
+    var(--cream);
+}
+
+.hero-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--gold) 20%,
+    var(--gold) 80%,
+    transparent
+  );
+}
+
+.countdown-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  rounded: 1rem;
+  border: 1px solid rgba(201, 169, 98, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 1.25rem 0.75rem;
+  backdrop-filter: blur(8px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 24px rgba(74, 28, 43, 0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.countdown-unit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(74, 28, 43, 0.1);
+}
+
+.countdown-number {
+  font-family: var(--font-frank), Georgia, serif;
+  font-size: clamp(2.5rem, 8vw, 3.75rem);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--burgundy);
+  font-variant-numeric: tabular-nums;
+}
+
+.countdown-label {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: rgba(74, 28, 43, 0.55);
+}
+
+.wish-form,
+.wish-card,
+.wishes-section {
+  border-radius: 1.25rem;
+}
+
+.wish-form {
+  border: 1px solid rgba(201, 169, 98, 0.3);
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.75rem;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 24px rgba(74, 28, 43, 0.05);
+}
+
+.wish-card {
+  border: 1px solid rgba(201, 169, 98, 0.25);
+  background: rgba(255, 255, 255, 0.75);
+  padding: 1.25rem 1.5rem;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 16px rgba(74, 28, 43, 0.04);
+  transition: box-shadow 0.2s ease;
+}
+
+.wish-card:hover {
+  box-shadow: 0 4px 24px rgba(74, 28, 43, 0.08);
+}
+
+.wish-input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(74, 28, 43, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  color: var(--burgundy);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wish-input::placeholder {
+  color: rgba(74, 28, 43, 0.35);
+}
+
+.wish-input:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201, 169, 98, 0.2);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.animate-fade-up-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-fade-up-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-fade-up-delay-3 {
+  animation-delay: 0.3s;
+}
