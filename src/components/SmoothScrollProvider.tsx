@@ -20,9 +20,10 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       touchMultiplier: 1.6,
     });
 
-    lenis.on("scroll", ({ scroll }: { scroll: number }) => {
-      setScrollY(scroll);
+    lenis.on("scroll", (instance) => {
+      setScrollY(instance.scroll);
     });
+    setScrollY(lenis.scroll);
 
     let rafId = 0;
     const raf = (time: number) => {

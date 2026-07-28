@@ -11,4 +11,6 @@ export const siteConfig = {
   hebrewYear: 5787,
   /** תווית לתאריך העברי — מוצגת בעמוד */
   hebrewDateLabel: 'י"ד בכסליו תשפ"ז',
+  /** מוזיקת רקע — שימו קובץ MP3 בתיקיית public/ (למשל music.mp3). null לביטול */
+  backgroundMusicSrc: "/music.mp3" as string | null,
 } as const;

@@ -1,3 +1,4 @@
+import { BackgroundMusic } from "@/components/BackgroundMusic";
 import { ConfettiCelebration } from "@/components/Confetti";
 import { Countdown } from "@/components/Countdown";
 import { ScrollMazelTov } from "@/components/ScrollMazelTov";
@@ -9,6 +10,7 @@ export default function Home() {
   return (
     <div className="page-bg min-h-screen">
       <ScrollMazelTov />
+      <BackgroundMusic />
       <ConfettiCelebration />
       <div className="page-content mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
         {/* ספירה */}

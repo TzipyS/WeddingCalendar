@@ -1,21 +1,21 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { PartyPopperIllustration } from "./PartyPopperIllustration";
 
 const COLORS = [
   "#d4af37",
   "#e8d5a8",
-  "#f5e6c8",
   "#c9a962",
   "#b8860b",
-  "#fff9ee",
-  "#f5ebe3",
   "#4a1c2b",
-  "#8b6914",
+  "#d4899a",
+  "#e8b4b8",
+  "#fff9ee",
+  "#8b5a6b",
+  "#6b9e8a",
+  "#c45c6c",
   "#dfc88a",
-  "#c4a265",
-  "#ead9b5",
 ];
 
 const BASELINE_COUNT = 18;
@@ -100,7 +100,7 @@ function BaselineLayer({ pieces }: { pieces: BaselinePiece[] }) {
             backgroundColor: piece.color,
             width: piece.shape === "rect" ? `${piece.size}px` : `${piece.size * 0.8}px`,
             height: piece.shape === "rect" ? `${piece.size * 0.5}px` : `${piece.size * 0.8}px`,
-            transform: `rotate(${piece.rotation}deg)`,
+            ["--rot-start" as string]: `${piece.rotation}deg`,
           }}
         />
       ))}
@@ -134,10 +134,7 @@ function BurstLayer({ pieces }: { pieces: BurstPiece[] }) {
 }
 
 export function ConfettiCelebration() {
-  const baseline = useMemo(
-    () => Array.from({ length: BASELINE_COUNT }, () => createBaselinePiece()),
-    [],
-  );
+  const [baseline, setBaseline] = useState<BaselinePiece[]>([]);
   const [burstPieces, setBurstPieces] = useState<BurstPiece[]>([]);
   const [firing, setFiring] = useState(false);
   const heatRef = useRef(0);
@@ -167,6 +164,10 @@ export function ConfettiCelebration() {
     setBurstPieces((prev) => [...prev, ...fresh].slice(-MAX_BURST_PIECES));
     setFiring(true);
     window.setTimeout(() => setFiring(false), 400);
+  }, []);
+
+  useEffect(() => {
+    setBaseline(Array.from({ length: BASELINE_COUNT }, () => createBaselinePiece()));
   }, []);
 
   useEffect(() => {

@@ -17,7 +17,7 @@ export function ScrollMazelTov() {
     update();
     window.addEventListener("resize", update);
     return () => window.removeEventListener("resize", update);
-  }, [scrollY]);
+  }, []);
 
   const progress = Math.min(1, Math.max(0, scrollY / maxScroll));
   const topVh = TOP_START + progress * (TOP_END - TOP_START);
