@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 400" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fff9ee"/>
+      <stop offset="50%" stop-color="#f5e6c8"/>
+      <stop offset="100%" stop-color="#e8d5a8"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#f5d76e"/>
+      <stop offset="100%" stop-color="#c9a962"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="400" fill="url(#bg)"/>
+  <!-- decorative rings -->
+  <circle cx="160" cy="200" r="120" stroke="url(#gold)" stroke-width="2" opacity="0.3" fill="none"/>
+  <circle cx="160" cy="200" r="90" stroke="url(#gold)" stroke-width="1.5" opacity="0.2" fill="none"/>
+  <!-- bride silhouette -->
+  <ellipse cx="115" cy="130" rx="28" ry="32" fill="#4a1c2b" opacity="0.85"/>
+  <path d="M115 162 Q115 200 100 280 L130 280 Q115 200 115 162" fill="#4a1c2b" opacity="0.85"/>
+  <path d="M85 175 Q70 220 75 260 L95 260 Q90 220 100 180" fill="#4a1c2b" opacity="0.7"/>
+  <path d="M145 175 Q160 220 155 260 L135 260 Q140 220 130 180" fill="#4a1c2b" opacity="0.7"/>
+  <!-- veil hint -->
+  <path d="M90 120 Q115 100 140 120 L135 200 Q115 190 95 200 Z" fill="white" opacity="0.5"/>
+  <!-- groom silhouette -->
+  <ellipse cx="205" cy="125" rx="26" ry="30" fill="#4a1c2b" opacity="0.85"/>
+  <rect x="188" y="155" width="34" height="90" rx="4" fill="#4a1c2b" opacity="0.85"/>
+  <path d="M188 165 L170 200 L185 200 Z" fill="#4a1c2b" opacity="0.7"/>
+  <path d="M222 165 L240 200 L225 200 Z" fill="#4a1c2b" opacity="0.7"/>
+  <!-- hearts -->
+  <text x="160" y="340" text-anchor="middle" font-size="28" fill="#c9a962">e e e</text>
+  <text x="160" y="375" text-anchor="middle" font-size="14" fill="#4a1c2b" opacity="0.5" font-family="serif">десйфе аъ дъоерд щмлн</text>
+</svg>

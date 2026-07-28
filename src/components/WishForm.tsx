@@ -44,12 +44,7 @@ export function WishForm({ onSubmit, disabled }: WishFormProps) {
 
   return (
     <form onSubmit={handleSubmit} className="wish-form">
-      <h2 className="font-display text-2xl text-burgundy">כתבו ברכה ואיחולים</h2>
-      <p className="mt-1 text-sm text-burgundy/60">
-        השאירו מילים חמות — כולם יוכלו לראות ולקרוא
-      </p>
-
-      <div className="mt-6 space-y-4">
+      <div className="space-y-4">
         <label className="block">
           <span className="mb-1.5 block text-sm font-medium text-burgundy/80">השם שלכם</span>
           <input
@@ -86,7 +81,7 @@ export function WishForm({ onSubmit, disabled }: WishFormProps) {
       <button
         type="submit"
         disabled={disabled || submitting}
-        className="mt-6 w-full rounded-full bg-burgundy px-6 py-3.5 text-base font-medium text-cream transition hover:bg-burgundy/90 disabled:cursor-not-allowed disabled:opacity-50"
+        className="btn-gold mt-6 w-full rounded-full px-6 py-3.5 text-base"
       >
         {submitting ? "שולח..." : "שליחת ברכה"}
       </button>

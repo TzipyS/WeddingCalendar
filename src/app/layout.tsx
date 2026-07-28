@@ -16,8 +16,8 @@ const frankRuhl = Frank_Ruhl_Libre({
 });
 
 export const metadata: Metadata = {
-  title: `ספירה לחתונה | ${siteConfig.coupleNames}`,
-  description: `לוח ספירה עברי לחתונה — ${siteConfig.hebrewDateLabel}`,
+  title: `${siteConfig.weddingTitle} | ${siteConfig.hebrewDateLabel}`,
+  description: `${siteConfig.subtitle} — ${siteConfig.hebrewDateLabel}`,
 };
 
 export default function RootLayout({

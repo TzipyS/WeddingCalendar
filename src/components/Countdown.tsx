@@ -11,7 +11,11 @@ const UNITS: { key: keyof Pick<TimeRemaining, "days" | "hours" | "minutes" | "se
   { key: "seconds", label: "שניות" },
 ];
 
-function pad(n: number) {
+function formatValue(
+  key: keyof Pick<TimeRemaining, "days" | "hours" | "minutes" | "seconds">,
+  n: number,
+) {
+  if (key === "days") return n.toString();
   return n.toString().padStart(2, "0");
 }
 
@@ -27,11 +31,11 @@ export function Countdown() {
 
   if (!remaining) {
     return (
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="countdown-row" dir="ltr">
         {UNITS.map(({ label }) => (
-          <div key={label} className="countdown-unit animate-pulse opacity-60">
-            <span className="countdown-number">—</span>
-            <span className="countdown-label">{label}</span>
+          <div key={label} className="countdown-unit countdown-unit-large animate-pulse opacity-60">
+            <span className="countdown-number countdown-number-large">—</span>
+            <span className="countdown-label countdown-label-large">{label}</span>
           </div>
         ))}
       </div>
@@ -40,23 +44,33 @@ export function Countdown() {
 
   if (remaining.isPast) {
     return (
-      <div className="rounded-2xl border border-gold/30 bg-white/60 px-8 py-10 text-center backdrop-blur-sm">
-        <p className="font-display text-3xl text-burgundy sm:text-4xl">
-          הגיע היום הגדול!
+      <div className="countdown-celebration">
+        <p className="font-display text-4xl text-gold-dark sm:text-5xl">
+          🎉 הגיע היום הגדול! 🎉
         </p>
-        <p className="mt-3 text-lg text-burgundy/70">מזל טוב ל{siteConfig.coupleNames}</p>
+        <p className="mt-4 text-2xl font-medium text-burgundy/80">
+          מזל טוב ל{siteConfig.coupleNames}
+        </p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-      {UNITS.map(({ key, label }) => (
-        <div key={key} className="countdown-unit">
-          <span className="countdown-number">{pad(remaining[key])}</span>
-          <span className="countdown-label">{label}</span>
-        </div>
-      ))}
+    <div className="countdown-row" dir="ltr">
+      {UNITS.map(({ key, label }) => {
+        const value = formatValue(key, remaining[key]);
+        return (
+          <div key={key} className="countdown-unit countdown-unit-large">
+            <span
+              className="countdown-number countdown-number-large"
+              data-digits={value.length}
+            >
+              {value}
+            </span>
+            <span className="countdown-label countdown-label-large">{label}</span>
+          </div>
+        );
+      })}
     </div>
   );
 }
