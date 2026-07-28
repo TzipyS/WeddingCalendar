@@ -30,8 +30,12 @@ const secularOne = Secular_One({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.weddingTitle} | ${siteConfig.hebrewDateLabel}`,
-  description: `${siteConfig.subtitle} — ${siteConfig.hebrewDateLabel}`,
+  title: siteConfig.shareLinkName,
+  description: `${siteConfig.weddingTitle} — ${siteConfig.subtitle} (${siteConfig.hebrewDateLabel})`,
+  openGraph: {
+    title: siteConfig.shareLinkName,
+    description: `${siteConfig.weddingTitle} — ${siteConfig.hebrewDateLabel}`,
+  },
 };
 
 export default function RootLayout({

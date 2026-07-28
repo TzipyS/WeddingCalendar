@@ -395,6 +395,52 @@ html.lenis body {
   --py: -40px;
 }
 
+/* Share via Gmail */
+.share-gmail-btn {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 1rem;
+  border: var(--festive-border);
+  border-radius: 999px;
+  cursor: pointer;
+  background: var(--festive-bg);
+  box-shadow: var(--festive-shadow);
+  font-family: var(--font-rubik), var(--font-heebo), Arial, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--burgundy);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.share-gmail-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 6px 28px rgba(212, 175, 55, 0.25);
+}
+
+.share-gmail-btn__icon {
+  font-size: 1.1rem;
+  line-height: 1;
+}
+
+.share-gmail-btn__label {
+  white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .share-gmail-btn {
+    padding: 0.55rem 0.75rem;
+  }
+
+  .share-gmail-btn__label {
+    display: none;
+  }
+}
+
 /* Music toggle */
 .music-toggle-btn {
   position: fixed;

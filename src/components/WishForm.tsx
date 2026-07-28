@@ -55,6 +55,7 @@ export function WishForm({ onSubmit, disabled }: WishFormProps) {
             maxLength={80}
             disabled={disabled || submitting}
             className="wish-input"
+            suppressHydrationWarning
           />
         </label>
 
@@ -68,6 +69,7 @@ export function WishForm({ onSubmit, disabled }: WishFormProps) {
             maxLength={500}
             disabled={disabled || submitting}
             className="wish-input resize-none"
+            suppressHydrationWarning
           />
         </label>
       </div>
@@ -82,6 +84,7 @@ export function WishForm({ onSubmit, disabled }: WishFormProps) {
         type="submit"
         disabled={disabled || submitting}
         className="btn-gold mt-6 w-full rounded-full px-6 py-3.5 text-base"
+        suppressHydrationWarning
       >
         {submitting ? "שולח..." : "שליחת ברכה"}
       </button>

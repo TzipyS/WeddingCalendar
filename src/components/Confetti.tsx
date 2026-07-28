@@ -134,6 +134,7 @@ function BurstLayer({ pieces }: { pieces: BurstPiece[] }) {
 }
 
 export function ConfettiCelebration() {
+  const [mounted, setMounted] = useState(false);
   const [baseline, setBaseline] = useState<BaselinePiece[]>([]);
   const [burstPieces, setBurstPieces] = useState<BurstPiece[]>([]);
   const [firing, setFiring] = useState(false);
@@ -168,6 +169,7 @@ export function ConfettiCelebration() {
 
   useEffect(() => {
     setBaseline(Array.from({ length: BASELINE_COUNT }, () => createBaselinePiece()));
+    setMounted(true);
   }, []);
 
   useEffect(() => {
@@ -189,11 +191,11 @@ export function ConfettiCelebration() {
   return (
     <>
       <div className="confetti-layer" aria-hidden="true">
-        <BaselineLayer pieces={baseline} />
+        {mounted && <BaselineLayer pieces={baseline} />}
       </div>
 
       <div className="confetti-burst-layer" aria-hidden="true">
-        <BurstLayer pieces={burstPieces} />
+        {mounted && <BurstLayer pieces={burstPieces} />}
       </div>
 
       <button
