@@ -1,45 +1,64 @@
 import { ConfettiCelebration } from "@/components/Confetti";
 import { Countdown } from "@/components/Countdown";
+import { ScrollMazelTov } from "@/components/ScrollMazelTov";
+import { ScrollReveal } from "@/components/ScrollReveal";
 import { WishesWall } from "@/components/WishesWall";
 import { siteConfig } from "@/config/site";
 
 export default function Home() {
   return (
     <div className="page-bg min-h-screen">
+      <ScrollMazelTov />
       <ConfettiCelebration />
       <div className="page-content mx-auto max-w-5xl px-5 py-10 sm:px-8 sm:py-14">
-        {/* Countdown — ימים | שעות | דקות | שניות משמאל לימין */}
-        <section className="animate-fade-up text-center">
-          <Countdown />
-        </section>
+        {/* ספירה */}
+        <ScrollReveal>
+          <section className="text-center">
+            <div className="frame-countdown">
+              <Countdown />
+            </div>
+          </section>
+        </ScrollReveal>
 
         {/* תאריך עברי */}
-        <p className="animate-fade-up animate-fade-up-delay-1 mt-10 text-center font-display text-3xl text-gold-dark sm:text-4xl">
-          {siteConfig.hebrewDateLabel}
-        </p>
+        <ScrollReveal delay={80}>
+          <p className="text-date mt-12 text-center font-display">{siteConfig.hebrewDateLabel}</p>
+          <div className="festive-divider" aria-hidden="true" />
+        </ScrollReveal>
 
-        {/* מזל טוב ענק */}
-        <h1 className="hero-mazel-tov animate-fade-up animate-fade-up-delay-1 mt-8 text-center font-display">
-          מזל טוב
-        </h1>
+        {/* מזל טוב */}
+        <ScrollReveal delay={120}>
+          <div className="mt-8 flex justify-center">
+            <h1 className="hero-mazel-tov-badge font-secular">מזל טוב</h1>
+          </div>
+        </ScrollReveal>
 
         {/* כותרות */}
-        <p className="animate-fade-up animate-fade-up-delay-2 mt-6 text-center text-xl font-medium text-burgundy/80 sm:text-2xl">
-          {siteConfig.subtitle}
-        </p>
-        <p className="animate-fade-up animate-fade-up-delay-2 mt-3 text-center font-display text-3xl font-bold text-burgundy sm:text-4xl md:text-5xl">
-          {siteConfig.weddingTitle}
-        </p>
+        <ScrollReveal delay={160}>
+          <p className="text-subtitle mt-10 text-center font-rubik">{siteConfig.subtitle}</p>
+        </ScrollReveal>
+        <ScrollReveal delay={200}>
+          <div className="mt-8">
+            <p className="text-wedding-title festive-panel--hero font-secular">
+              {siteConfig.weddingTitle}
+            </p>
+          </div>
+        </ScrollReveal>
 
         {/* ברכות ואיחולים */}
-        <div className="animate-fade-up animate-fade-up-delay-3 mt-16 sm:mt-20">
-          <WishesWall />
-        </div>
+        <ScrollReveal delay={240}>
+          <div className="mt-16 sm:mt-20">
+            <WishesWall />
+          </div>
+        </ScrollReveal>
 
         {/* בנין עדי עד */}
-        <footer className="footer-blessing mt-16 pb-10 text-center font-display">
-          בנין עדי עד!!!
-        </footer>
+        <ScrollReveal delay={280}>
+          <footer className="footer-blessing mt-16 pb-10 text-center font-display">
+            בנין עדי עד!!!
+          </footer>
+          <div className="festive-divider" aria-hidden="true" />
+        </ScrollReveal>
       </div>
     </div>
   );

@@ -8,6 +8,10 @@
   --gold-light: #f5e6c8;
   --gold-dark: #b8860b;
   --rose: #f5ebe3;
+  --festive-border: 2px solid rgba(212, 175, 55, 0.48);
+  --festive-radius: 1.25rem;
+  --festive-bg: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(245, 230, 200, 0.72));
+  --festive-shadow: 0 4px 24px rgba(212, 175, 55, 0.14);
 }
 
 @theme inline {
@@ -20,6 +24,8 @@
   --color-rose: var(--rose);
   --font-sans: var(--font-heebo);
   --font-display: var(--font-frank);
+  --font-rubik: var(--font-rubik);
+  --font-secular: var(--font-secular);
 }
 
 body {
@@ -27,10 +33,86 @@ body {
   color: var(--burgundy);
   font-family: var(--font-heebo), Arial, sans-serif;
   overflow-x: hidden;
+  font-size: 1.0625rem;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }
 
 .font-display {
   font-family: var(--font-frank), Georgia, serif;
+}
+
+.font-rubik {
+  font-family: var(--font-rubik), var(--font-heebo), Arial, sans-serif;
+}
+
+.font-secular {
+  font-family: var(--font-secular), var(--font-frank), Georgia, serif;
+}
+
+/* מזל טוב — נגלל עם המשתמש לאורך העמוד */
+.scroll-mazel-tov {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  pointer-events: none;
+  width: 100%;
+  max-width: 100vw;
+  margin: 0;
+  text-align: center;
+  line-height: 0.95;
+  white-space: nowrap;
+  user-select: none;
+  font-size: clamp(5.5rem, 30vw, 14rem);
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  color: rgba(184, 134, 11, 0.48);
+  -webkit-text-stroke: 2px rgba(212, 175, 55, 0.35);
+  paint-order: stroke fill;
+  text-shadow:
+    0 0 60px rgba(255, 215, 0, 0.45),
+    0 0 120px rgba(212, 175, 55, 0.25),
+    0 6px 24px rgba(74, 28, 43, 0.12);
+  filter: drop-shadow(0 8px 32px rgba(212, 175, 55, 0.35));
+  will-change: top;
+}
+
+/* הופעה בגלילה */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(2rem);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 /* Festive background */
@@ -59,8 +141,84 @@ body {
 
 .page-content {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
+
+/* Unified festive design system */
+.festive-panel {
+  border: var(--festive-border);
+  border-radius: var(--festive-radius);
+  background: var(--festive-bg);
+  box-shadow: var(--festive-shadow);
+}
+
+.festive-panel--hero {
+  border: var(--festive-border);
+  border-radius: var(--festive-radius);
+  background: var(--festive-bg);
+  box-shadow: var(--festive-shadow);
+  padding: 1.5rem 2rem;
+}
+
+.festive-divider {
+  width: 4rem;
+  height: 3px;
+  margin: 0.75rem auto 0;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.section-heading {
+  font-family: var(--font-secular), Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
+  color: var(--gold-dark);
+  text-align: center;
+}
+
+.section-subheading {
+  font-family: var(--font-rubik), Arial, sans-serif;
+  font-size: clamp(1.25rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--burgundy);
+  text-align: center;
+}
+
+.text-date {
+  font-size: clamp(2rem, 6vw, 3.25rem);
+  font-weight: 700;
+  color: var(--gold-dark);
+  letter-spacing: 0.03em;
+}
+
+.hero-mazel-tov-badge {
+  font-size: clamp(2.75rem, 10vw, 5rem);
+  font-weight: 400;
+  line-height: 1;
+  background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: 0.05em;
+  filter: drop-shadow(0 3px 10px rgba(212, 175, 55, 0.3));
+}
+
+.text-subtitle {
+  font-size: clamp(1.35rem, 4.5vw, 2.25rem);
+  font-weight: 700;
+  color: var(--burgundy);
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.text-wedding-title {
+  font-size: clamp(2.25rem, 8vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--burgundy);
+  text-align: center;
+}
+
 
 /* Confetti */
 .confetti-layer,
@@ -79,7 +237,7 @@ body {
 .confetti-piece {
   position: absolute;
   top: -20px;
-  opacity: 0.85;
+  opacity: 0.72;
   animation: confetti-fall linear infinite;
 }
 
@@ -113,164 +271,164 @@ body {
 
 @keyframes confetti-explode {
   0% {
-    transform: translate(-50%, -50%) rotate(0deg) scale(0.3);
+    transform: translate(-50%, -50%) rotate(0deg) scale(0.2);
     opacity: 1;
   }
-  18% {
-    transform: translate(calc(-50% + var(--tx)), calc(-50% + var(--ty-up))) rotate(calc(var(--rot-end) * 0.25));
+  15% {
+    transform: translate(calc(-50% + var(--tx) * 0.55), calc(-50% + var(--ty-up))) rotate(calc(var(--rot-end) * 0.2));
     opacity: 1;
   }
   100% {
-    transform: translate(calc(-50% + var(--tx) * 1.35), calc(-50% + var(--ty-up) + 92vh))
+    transform: translate(calc(-50% + var(--tx) * 1.75), calc(-50% + var(--ty-up) + 115vh))
       rotate(var(--rot-end));
     opacity: 0;
   }
 }
 
-/* Confetti cannon button */
-.confetti-bomb-btn {
+/* Party popper button */
+.party-popper-btn {
   position: fixed;
-  bottom: 1.5rem;
-  right: 1.5rem;
+  bottom: 1.25rem;
+  right: 1.25rem;
   left: auto;
   z-index: 60;
-  width: 4.75rem;
-  height: 4.75rem;
+  width: 5rem;
+  height: 6.25rem;
   border: none;
-  border-radius: 50%;
   cursor: pointer;
   background: transparent;
   padding: 0;
-  transition: transform 0.12s ease;
+  transition: transform 0.15s ease;
+  filter: drop-shadow(0 6px 18px rgba(255, 107, 203, 0.45));
 }
 
-.confetti-bomb-body {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.party-popper-svg {
   width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background: linear-gradient(145deg, #ff6b6b 0%, #ee5a24 55%, #c0392b 100%);
-  box-shadow:
-    0 5px 0 #96281b,
-    0 10px 28px rgba(238, 90, 36, 0.55),
-    inset 0 2px 6px rgba(255, 255, 255, 0.35);
+  height: auto;
+  display: block;
+  pointer-events: none;
+  user-select: none;
 }
 
-.confetti-bomb-nozzle {
+.party-popper-nozzle-marker {
   position: absolute;
-  top: -14px;
+  top: 1.1rem;
   left: 50%;
-  transform: translateX(-50%) rotate(-15deg);
+  transform: translateX(-50%);
   width: 18px;
-  height: 22px;
-  border-radius: 4px 4px 2px 2px;
-  background: linear-gradient(to top, #555, #888);
-  box-shadow: inset 0 -3px 0 #333;
+  height: 10px;
+  pointer-events: none;
 }
 
-.confetti-bomb-nozzle::after {
-  content: "";
+.party-popper-burst-flash {
   position: absolute;
   top: -8px;
   left: 50%;
   transform: translateX(-50%);
-  width: 10px;
-  height: 10px;
-  border-radius: 50% 50% 0 0;
-  background: radial-gradient(circle at 50% 80%, #ffd700, #ff6b00, transparent);
-  animation: nozzle-spark 0.5s ease-in-out infinite alternate;
-}
-
-@keyframes nozzle-spark {
-  0% {
-    opacity: 0.6;
-    transform: translateX(-50%) scale(0.85);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(-50%) scale(1.15);
-  }
-}
-
-.confetti-bomb-stream {
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 36px;
-  height: 36px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
   pointer-events: none;
   opacity: 0;
-  background:
-    radial-gradient(circle at 30% 70%, #ffd700 0%, transparent 45%),
-    radial-gradient(circle at 70% 40%, #ff6b9d 0%, transparent 40%),
-    radial-gradient(circle at 50% 50%, #87ceeb 0%, transparent 50%);
-  filter: blur(1px);
-  transition: opacity 0.1s ease;
+  background: radial-gradient(circle, rgba(232, 213, 168, 0.85) 0%, rgba(212, 175, 55, 0.4) 45%, transparent 70%);
 }
 
-.confetti-bomb-btn--firing .confetti-bomb-stream {
-  opacity: 1;
-  animation: stream-burst 0.35s ease-out forwards;
+.party-popper-btn--firing .party-popper-burst-flash {
+  animation: popper-flash 0.45s ease-out forwards;
 }
 
-@keyframes stream-burst {
+@keyframes popper-flash {
   0% {
-    transform: translateX(-50%) scale(0.4) translateY(10px);
-    opacity: 0.9;
+    opacity: 0.95;
+    transform: translateX(-50%) scale(0.3);
   }
   100% {
-    transform: translateX(-50%) scale(2.2) translateY(-30px);
     opacity: 0;
+    transform: translateX(-50%) scale(3.5) translateY(-40px);
   }
 }
 
-.confetti-bomb-btn:hover {
-  transform: translateY(-3px) scale(1.06);
+.party-popper-confetti-preview {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
 }
 
-.confetti-bomb-btn:hover .confetti-bomb-body {
-  box-shadow:
-    0 7px 0 #96281b,
-    0 14px 36px rgba(238, 90, 36, 0.65),
-    inset 0 2px 6px rgba(255, 255, 255, 0.35);
+.party-popper-confetti-preview span {
+  position: absolute;
+  width: 7px;
+  height: 4px;
+  border-radius: 1px;
+  opacity: 0;
 }
 
-.confetti-bomb-btn:active {
-  transform: translateY(2px) scale(0.96);
+.party-popper-btn--firing .party-popper-confetti-preview span:nth-child(1) {
+  background: #d4af37;
+  animation: preview-confetti 0.5s ease-out forwards;
+  --px: -28px;
+  --py: -55px;
+}
+.party-popper-btn--firing .party-popper-confetti-preview span:nth-child(2) {
+  background: #e8d5a8;
+  animation: preview-confetti 0.55s 0.02s ease-out forwards;
+  --px: 18px;
+  --py: -70px;
+}
+.party-popper-btn--firing .party-popper-confetti-preview span:nth-child(3) {
+  background: #c9a962;
+  animation: preview-confetti 0.48s 0.04s ease-out forwards;
+  --px: -10px;
+  --py: -85px;
+}
+.party-popper-btn--firing .party-popper-confetti-preview span:nth-child(4) {
+  background: #4a1c2b;
+  animation: preview-confetti 0.52s 0.01s ease-out forwards;
+  --px: 32px;
+  --py: -45px;
+}
+.party-popper-btn--firing .party-popper-confetti-preview span:nth-child(5) {
+  background: #f5ebe3;
+  animation: preview-confetti 0.58s 0.03s ease-out forwards;
+  --px: -35px;
+  --py: -40px;
 }
 
-.confetti-bomb-btn:active .confetti-bomb-body {
-  box-shadow:
-    0 2px 0 #96281b,
-    0 6px 18px rgba(238, 90, 36, 0.45),
-    inset 0 2px 6px rgba(255, 255, 255, 0.35);
-}
-
-.confetti-bomb-btn--firing .confetti-bomb-body {
-  animation: cannon-kick 0.3s ease-out;
-}
-
-@keyframes cannon-kick {
+@keyframes preview-confetti {
   0% {
-    transform: scale(1);
-  }
-  30% {
-    transform: scale(0.88);
+    opacity: 1;
+    transform: translate(0, 0) rotate(0deg);
   }
   100% {
-    transform: scale(1);
+    opacity: 0;
+    transform: translate(var(--px), var(--py)) rotate(360deg);
   }
 }
 
-.confetti-bomb-icon {
-  font-size: 1.85rem;
-  line-height: 1;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.25));
-  pointer-events: none;
+.party-popper-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+}
+
+.party-popper-btn:active {
+  transform: translateY(2px) scale(0.97);
+}
+
+.party-popper-btn--firing {
+  animation: popper-recoil 0.35s ease-out;
+}
+
+@keyframes popper-recoil {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    transform: translateY(6px) scale(0.94) rotate(-3deg);
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+  }
 }
 
 
@@ -456,23 +614,13 @@ body {
   text-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);
 }
 
-/* Hero text */
-.hero-mazel-tov {
-  font-size: clamp(3.5rem, 14vw, 7rem);
-  font-weight: 700;
-  line-height: 1;
-  background: linear-gradient(135deg, var(--gold-bright), var(--gold), var(--gold-dark));
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 4px 12px rgba(212, 175, 55, 0.35));
-}
-
+/* Hero text — kept for reference, badge used instead */
 .footer-blessing {
-  font-size: clamp(2rem, 8vw, 4rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 9vw, 4.75rem);
+  font-weight: 900;
   color: var(--gold-dark);
-  text-shadow: 0 2px 12px rgba(212, 175, 55, 0.3);
+  text-shadow: 0 3px 16px rgba(212, 175, 55, 0.35);
+  letter-spacing: 0.04em;
 }
 
 /* Countdown — שורה משמאל לימין */
@@ -490,18 +638,12 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 2px solid rgba(212, 175, 55, 0.55);
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.95) 0%,
-    rgba(245, 230, 200, 0.85) 100%
-  );
+  border: var(--festive-border);
+  border-radius: var(--festive-radius);
+  background: var(--festive-bg);
   padding: 1.25rem 1rem;
   backdrop-filter: blur(8px);
-  border-radius: 1rem;
-  box-shadow:
-    0 4px 24px rgba(212, 175, 55, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  box-shadow: var(--festive-shadow);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   overflow: hidden;
 }
@@ -514,8 +656,8 @@ body {
 }
 
 .countdown-number {
-  font-family: var(--font-frank), Georgia, serif;
-  font-size: clamp(2.5rem, 8vw, 3.75rem);
+  font-family: var(--font-secular), var(--font-frank), Georgia, serif;
+  font-size: clamp(3rem, 10vw, 4.5rem);
   font-weight: 700;
   line-height: 1.1;
   background: linear-gradient(180deg, var(--gold-bright) 0%, var(--gold) 50%, var(--gold-dark) 100%);
@@ -531,11 +673,13 @@ body {
 }
 
 .countdown-label {
-  margin-top: 0.5rem;
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  margin-top: 0.625rem;
+  font-family: var(--font-rubik), Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
   color: var(--gold-dark);
+  text-transform: uppercase;
 }
 
 .countdown-unit-large {
@@ -546,7 +690,7 @@ body {
 }
 
 .countdown-number-large {
-  font-size: clamp(2.5rem, 10vw, 4.75rem);
+  font-size: clamp(3rem, 11vw, 5.25rem);
 }
 
 .countdown-number-large[data-digits="3"] {
@@ -560,52 +704,74 @@ body {
 }
 
 .countdown-label-large {
-  font-size: clamp(0.875rem, 2.5vw, 1.125rem);
-  margin-top: 0.75rem;
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  margin-top: 0.875rem;
 }
 
 /* Wishes section */
 .wishes-section-title {
-  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-family: var(--font-secular), Georgia, serif;
+  font-size: clamp(1.75rem, 5vw, 2.75rem);
   color: var(--gold-dark);
+  text-align: center;
 }
 
 .wish-form-heading {
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-family: var(--font-rubik), Arial, sans-serif;
+  font-size: clamp(1.35rem, 4vw, 1.85rem);
+  font-weight: 700;
   color: var(--burgundy);
+  text-align: center;
 }
 
 .countdown-celebration {
-  border-radius: 1.5rem;
-  border: 2px solid rgba(212, 175, 55, 0.5);
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(245, 230, 200, 0.8));
+  border: var(--festive-border);
+  border-radius: var(--festive-radius);
+  background: var(--festive-bg);
   padding: 2.5rem 2rem;
   text-align: center;
-  box-shadow: 0 8px 40px rgba(212, 175, 55, 0.3);
+  box-shadow: var(--festive-shadow);
 }
 
 /* Wishes */
 .wish-form,
-.wish-card,
-.wishes-section {
-  border-radius: 1.25rem;
+.wish-card {
+  border-radius: var(--festive-radius);
 }
 
 .wish-form {
-  border: 2px solid rgba(212, 175, 55, 0.45);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.92), rgba(245, 230, 200, 0.75));
+  border: var(--festive-border);
+  background: var(--festive-bg);
   padding: 1.75rem;
   backdrop-filter: blur(8px);
-  box-shadow: 0 4px 28px rgba(212, 175, 55, 0.15);
+  box-shadow: var(--festive-shadow);
 }
 
 .wish-card {
-  border: 1px solid rgba(212, 175, 55, 0.35);
-  background: linear-gradient(160deg, rgba(255, 255, 255, 0.9), rgba(255, 249, 238, 0.85));
-  padding: 1.25rem 1.5rem;
+  border: var(--festive-border);
+  background: var(--festive-bg);
+  padding: 1.5rem 1.75rem;
   backdrop-filter: blur(6px);
-  box-shadow: 0 2px 16px rgba(212, 175, 55, 0.1);
+  box-shadow: var(--festive-shadow);
   transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.wish-card .font-display {
+  font-family: var(--font-secular), Georgia, serif;
+  font-size: 1.4rem;
+}
+
+.wish-card p:not(.font-display) {
+  font-family: var(--font-rubik), Arial, sans-serif;
+  font-size: 1.0625rem;
+}
+
+.wishes-all-title {
+  font-family: var(--font-frank), Georgia, serif;
+  font-size: clamp(1.35rem, 3.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--gold-dark);
+  text-align: center;
 }
 
 .wish-card:hover {

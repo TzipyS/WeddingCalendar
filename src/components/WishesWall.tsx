@@ -127,7 +127,8 @@ export function WishesWall() {
 
   return (
     <section className="wishes-section">
-      <h2 className="wishes-section-title font-display text-center">ברכות ואיחולים</h2>
+      <h2 className="wishes-section-title">ברכות ואיחולים</h2>
+      <div className="festive-divider" aria-hidden="true" />
 
       {/* שתי הברכות האחרונות */}
       {loading ? (
@@ -160,10 +161,9 @@ export function WishesWall() {
 
       {/* טופס שליחת ברכה */}
       <div className="mt-12">
-        <h3 className="wish-form-heading font-display text-center">לשליחת ברכה</h3>
-        <div className="mt-6">
-          <WishForm onSubmit={handleSubmit} disabled={!dbConfigured} />
-        </div>
+        <h3 className="wish-form-heading">לשליחת ברכה</h3>
+        <div className="festive-divider mb-6" aria-hidden="true" />
+        <WishForm onSubmit={handleSubmit} disabled={!dbConfigured} />
       </div>
 
       {!dbConfigured && (
@@ -175,8 +175,9 @@ export function WishesWall() {
       {/* שאר הברכות */}
       {!loading && olderWishes.length > 0 && (
         <div className="mt-12">
-          <h3 className="font-display text-xl text-gold-dark">כל הברכות</h3>
-          <ul className="mt-6 space-y-4">
+          <h3 className="wishes-all-title">כל הברכות</h3>
+          <div className="festive-divider mb-6" aria-hidden="true" />
+          <ul className="space-y-4">
             {olderWishes.map((wish) => (
               <WishCard
                 key={wish.id}

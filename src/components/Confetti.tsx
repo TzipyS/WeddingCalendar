@@ -1,24 +1,25 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { PartyPopperIllustration } from "./PartyPopperIllustration";
 
 const COLORS = [
   "#d4af37",
-  "#f5d76e",
+  "#e8d5a8",
+  "#f5e6c8",
   "#c9a962",
-  "#e8c547",
-  "#ffd700",
   "#b8860b",
-  "#fff8dc",
+  "#fff9ee",
+  "#f5ebe3",
   "#4a1c2b",
-  "#ff6b9d",
-  "#87ceeb",
-  "#ff4757",
-  "#7bed9f",
+  "#8b6914",
+  "#dfc88a",
+  "#c4a265",
+  "#ead9b5",
 ];
 
 const BASELINE_COUNT = 18;
-const MAX_BURST_PIECES = 700;
+const MAX_BURST_PIECES = 800;
 
 type BaselinePiece = {
   id: string;
@@ -66,21 +67,21 @@ function createBaselinePiece(): BaselinePiece {
 }
 
 function createBurstPiece(originX: number, originY: number, heat: number): BurstPiece {
-  const spread = 120 + heat * 35;
+  const spread = 200 + heat * 55;
   const tx = randomBetween(-spread, spread);
-  const tyUp = -randomBetween(140, 320 + heat * 25);
+  const tyUp = -randomBetween(280, 520 + heat * 45);
   return {
     id: `burst-${++pieceCounter}`,
     originX,
     originY,
     tx,
     tyUp,
-    delay: randomBetween(0, 0.15),
-    duration: randomBetween(2.2, 4.5),
+    delay: randomBetween(0, 0.12),
+    duration: randomBetween(3, 6.5),
     color: COLORS[Math.floor(Math.random() * COLORS.length)],
-    size: randomBetween(10, 22),
-    rotEnd: randomBetween(540, 1080),
-    shape: Math.random() > 0.3 ? "rect" : "circle",
+    size: randomBetween(10, 24),
+    rotEnd: randomBetween(720, 1440),
+    shape: Math.random() > 0.25 ? "rect" : "circle",
     createdAt: Date.now(),
   };
 }
@@ -141,21 +142,31 @@ export function ConfettiCelebration() {
   const [firing, setFiring] = useState(false);
   const heatRef = useRef(0);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const nozzleRef = useRef<HTMLSpanElement>(null);
 
   const triggerBurst = useCallback(() => {
-    const rect = buttonRef.current?.getBoundingClientRect();
-    const originX = rect ? rect.left + rect.width / 2 : window.innerWidth - 56;
-    const originY = rect ? rect.top + rect.height / 2 : window.innerHeight - 56;
+    const nozzleRect = nozzleRef.current?.getBoundingClientRect();
+    const buttonRect = buttonRef.current?.getBoundingClientRect();
+    const originX = nozzleRect
+      ? nozzleRect.left + nozzleRect.width / 2
+      : buttonRect
+        ? buttonRect.left + buttonRect.width / 2
+        : window.innerWidth - 56;
+    const originY = nozzleRect
+      ? nozzleRect.top + nozzleRect.height / 2
+      : buttonRect
+        ? buttonRect.top + 8
+        : window.innerHeight - 100;
 
     heatRef.current = Math.min(heatRef.current + 1.5, 15);
-    const count = 55 + Math.floor(heatRef.current * 28);
+    const count = 60 + Math.floor(heatRef.current * 32);
     const fresh = Array.from({ length: count }, () =>
       createBurstPiece(originX, originY, heatRef.current),
     );
 
     setBurstPieces((prev) => [...prev, ...fresh].slice(-MAX_BURST_PIECES));
     setFiring(true);
-    window.setTimeout(() => setFiring(false), 350);
+    window.setTimeout(() => setFiring(false), 400);
   }, []);
 
   useEffect(() => {
@@ -164,7 +175,7 @@ export function ConfettiCelebration() {
     }, 500);
 
     const cleanup = setInterval(() => {
-      const cutoff = Date.now() - 9000;
+      const cutoff = Date.now() - 11000;
       setBurstPieces((prev) => prev.filter((p) => p.createdAt > cutoff));
     }, 1200);
 
@@ -187,16 +198,17 @@ export function ConfettiCelebration() {
       <button
         ref={buttonRef}
         type="button"
-        className={`confetti-bomb-btn${firing ? " confetti-bomb-btn--firing" : ""}`}
+        className={`party-popper-btn${firing ? " party-popper-btn--firing" : ""}`}
         onClick={triggerBurst}
         aria-label="קונפטי!"
         title="קונפטי!"
       >
-        <span className="confetti-bomb-stream" aria-hidden="true" />
-        <span className="confetti-bomb-body" aria-hidden="true">
-          <span className="confetti-bomb-nozzle" />
-          <span className="confetti-bomb-icon">🎊</span>
+        <span className="party-popper-burst-flash" aria-hidden="true" />
+        <span className="party-popper-confetti-preview" aria-hidden="true">
+          <span /><span /><span /><span /><span />
         </span>
+        <span ref={nozzleRef} className="party-popper-nozzle-marker" aria-hidden="true" />
+        <PartyPopperIllustration />
       </button>
     </>
   );
