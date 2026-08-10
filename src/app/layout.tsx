@@ -31,10 +31,10 @@ const secularOne = Secular_One({
 
 export const metadata: Metadata = {
   title: siteConfig.shareLinkName,
-  description: `${siteConfig.weddingTitle} — ${siteConfig.subtitle} (${siteConfig.hebrewDateLabel})`,
+  description: `${siteConfig.weddingTitle} - ${siteConfig.subtitle} (${siteConfig.hebrewDateLabel})`,
   openGraph: {
     title: siteConfig.shareLinkName,
-    description: `${siteConfig.weddingTitle} — ${siteConfig.hebrewDateLabel}`,
+    description: `${siteConfig.weddingTitle} - ${siteConfig.hebrewDateLabel}`,
   },
 };
 

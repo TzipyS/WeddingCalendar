@@ -44,7 +44,7 @@ npm run dev
 3. ב-**Environment Variables** הוסיפו:
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
-4. **Deploy** — תקבלו קישור כמו `https://your-app.vercel.app`
+4. **Deploy** - תקבלו קישור כמו `https://your-app.vercel.app`
 
 ### דומיין משלך (אופציונלי)
 
@@ -63,5 +63,5 @@ npm run dev
 
 ## הערות
 
-- **מחיקה פתוחה:** כל מי עם הקישור יכול למחוק כל ברכה. אם תרצו להגביל — עדכנו את מדיניות RLS ב-Supabase.
+- **מחיקה פתוחה:** כל מי עם הקישור יכול למחוק כל ברכה. אם תרצו להגביל - עדכנו את מדיניות RLS ב-Supabase.
 - **עדכון בזמן אמת:** הברכות מתרעננות כל 15 שניות אוטומטית.

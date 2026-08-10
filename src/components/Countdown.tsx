@@ -34,7 +34,7 @@ export function Countdown() {
       <div className="countdown-row" dir="ltr">
         {UNITS.map(({ label }) => (
           <div key={label} className="countdown-unit countdown-unit-large animate-pulse opacity-60">
-            <span className="countdown-number countdown-number-large">—</span>
+            <span className="countdown-number countdown-number-large">-</span>
             <span className="countdown-label countdown-label-large">{label}</span>
           </div>
         ))}

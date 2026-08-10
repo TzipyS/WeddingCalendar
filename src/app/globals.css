@@ -65,7 +65,7 @@ html.lenis body {
   font-family: var(--font-secular), var(--font-frank), Georgia, serif;
 }
 
-/* מזל טוב — נגלל עם המשתמש לאורך העמוד */
+/* מזל טוב - נגלל עם המשתמש לאורך העמוד */
 .scroll-mazel-tov {
   position: fixed;
   inset-inline: 0;
@@ -442,7 +442,7 @@ html.lenis body {
   }
 }
 
-/* TzipyS credit — sticky footer, always visible */
+/* TzipyS credit - sticky footer, always visible */
 .developer-credit-link {
   position: fixed;
   right: 0;
@@ -741,7 +741,7 @@ html.lenis body {
   text-shadow: 0 1px 4px rgba(212, 175, 55, 0.3);
 }
 
-/* Hero text — kept for reference, badge used instead */
+/* Hero text - kept for reference, badge used instead */
 .footer-blessing {
   font-size: clamp(2.5rem, 9vw, 4.75rem);
   font-weight: 900;
@@ -750,7 +750,7 @@ html.lenis body {
   letter-spacing: 0.04em;
 }
 
-/* Countdown — שורה משמאל לימין */
+/* Countdown - שורה משמאל לימין */
 .countdown-row {
   display: flex;
   flex-direction: row;

@@ -156,7 +156,7 @@ export function WishesWall() {
           ))}
         </ul>
       ) : (
-        <p className="mt-8 text-center text-burgundy/50">עדיין אין ברכות — היו הראשונים לכתוב!</p>
+        <p className="mt-8 text-center text-burgundy/50">עדיין אין ברכות - היו הראשונים לכתוב!</p>
       )}
 
       {/* טופס שליחת ברכה */}

@@ -9,15 +9,15 @@ export const siteConfig = {
   kislevDay: 14,
   /** שנה עברית (למשל תשפ\"ז = 5787) */
   hebrewYear: 5787,
-  /** תווית לתאריך העברי — מוצגת בעמוד */
+  /** תווית לתאריך העברי - מוצגת בעמוד */
   hebrewDateLabel: 'י"ד בכסליו תשפ"ז',
   /** שם הקישור בשיתוף (מייל, תצוגה מקדימה) */
   shareLinkName: "החתונה מתקרבת!!!",
   /** כתובת האתר לשיתוף (תמיד תישלח בקישור, גם מ-localhost) */
   publicSiteUrl: "https://wedding-pndb.vercel.app/",
-  /** מוזיקת רקע — שימו קובץ MP3 בתיקיית public/ (למשל music.mp3). null לביטול */
+  /** מוזיקת רקע - שימו קובץ MP3 בתיקיית public/ (למשל music.mp3). null לביטול */
   backgroundMusicSrc: encodeURI("/משה קליין (חדד) - דבר נאה ומתקבל.mp3") as string | null,
-  /** אימייל TzipyS לפניות לידים (Gmail — שדה "אל") */
+  /** אימייל TzipyS לפניות לידים (Gmail - שדה "אל") */
   developerEmail: "t63304@gmail.com",
   /** נושא מייל לידים מ-Gmail */
   developerLeadsSubject: "התעניינות לפרטים על אתר",
@@ -33,7 +33,7 @@ export const siteConfig = {
     "",
     "תודה רבה!",
   ].join("\n"),
-  /** גוף מייל שיתוף (נפתח ב-Gmail) — {url} יוחלף בקישור */
+  /** גוף מייל שיתוף (נפתח ב-Gmail) - {url} יוחלף בקישור */
   shareEmailBody: [
     "היי,",
     "{url}",

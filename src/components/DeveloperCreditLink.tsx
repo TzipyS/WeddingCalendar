@@ -22,7 +22,7 @@ export function DeveloperCreditLink() {
       target="_blank"
       rel="noopener noreferrer"
       className="developer-credit-link"
-      aria-label="פנייה ל-TzipyS — פיתוח ועיצוב"
+      aria-label="פנייה ל-TzipyS - פיתוח ועיצוב"
       title="פנייה לפיתוח ועיצוב"
     >
       <span>כל הזכויות שמורות</span>
