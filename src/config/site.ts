@@ -20,7 +20,7 @@ export const siteConfig = {
   /** אימייל TzipyS לפניות לידים (Gmail — שדה "אל") */
   developerEmail: "t63304@gmail.com",
   /** נושא מייל לידים מ-Gmail */
-  developerLeadsSubject: "התעניינות באתר — ליד חדש",
+  developerLeadsSubject: "התעניינות לפרטים על אתר",
   /** גוף מייל לידים (נפתח ב-Gmail) */
   developerLeadsBody: [
     "שלום,",
@@ -36,10 +36,6 @@ export const siteConfig = {
   /** גוף מייל שיתוף (נפתח ב-Gmail) — {url} יוחלף בקישור */
   shareEmailBody: [
     "היי,",
-    "",
-    "חשבתי שזה יעניין אותך —",
-    "ספירה ליום הגדול של {couple}, עם ברכות, מוזיקה ואווירה חגיגית.",
-    "",
     "{url}",
     "",
     "📅 {date}",
