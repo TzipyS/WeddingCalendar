@@ -8,16 +8,10 @@ function getSharePageUrl() {
 
 function buildGmailComposeUrl(pageUrl: string) {
   const subject = siteConfig.shareLinkName;
-  const body = [
-    "היי,",
-    "",
-    "רציתי לשתף איתך את ספירת הימים לחתונה:",
-    "",
-    pageUrl,
-    "",
-    siteConfig.hebrewDateLabel,
-    "מזל טוב!",
-  ].join("\n");
+  const body = siteConfig.shareEmailBody
+    .replace("{url}", pageUrl)
+    .replace("{couple}", siteConfig.weddingTitle)
+    .replace("{date}", siteConfig.hebrewDateLabel);
 
   const params = new URLSearchParams({
     view: "cm",

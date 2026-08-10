@@ -18,7 +18,32 @@ export const siteConfig = {
   /** מוזיקת רקע — שימו קובץ MP3 בתיקיית public/ (למשל music.mp3). null לביטול */
   backgroundMusicSrc: encodeURI("/משה קליין (חדד) - דבר נאה ומתקבל.mp3") as string | null,
   /** אימייל TzipyS לפניות לידים (Gmail — שדה "אל") */
-  developerEmail: "",
+  developerEmail: "t63304@gmail.com",
   /** נושא מייל לידים מ-Gmail */
-  developerLeadsSubject: "התענינות על התר - -ללידים חדשים",
+  developerLeadsSubject: "התעניינות באתר — ליד חדש",
+  /** גוף מייל לידים (נפתח ב-Gmail) */
+  developerLeadsBody: [
+    "שלום,",
+    "",
+    "הגעתי דרך האתר ומעוניין/ת לשמוע פרטים על פיתוח ועיצוב.",
+    "",
+    "שם מלא:",
+    "טלפון:",
+    "פרטים נוספים:",
+    "",
+    "תודה רבה!",
+  ].join("\n"),
+  /** גוף מייל שיתוף (נפתח ב-Gmail) — {url} יוחלף בקישור */
+  shareEmailBody: [
+    "היי,",
+    "",
+    "חשבתי שזה יעניין אותך —",
+    "ספירה ליום הגדול של {couple}, עם ברכות, מוזיקה ואווירה חגיגית.",
+    "",
+    "{url}",
+    "",
+    "📅 {date}",
+    "",
+    "מזל טוב!",
+  ].join("\n"),
 } as const;

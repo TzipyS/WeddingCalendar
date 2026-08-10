@@ -5,6 +5,7 @@ function buildLeadsGmailUrl() {
     view: "cm",
     fs: "1",
     su: siteConfig.developerLeadsSubject,
+    body: siteConfig.developerLeadsBody,
   });
 
   if (siteConfig.developerEmail) {
