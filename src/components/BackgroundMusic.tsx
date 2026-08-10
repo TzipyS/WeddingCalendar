@@ -1,11 +1,20 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { siteConfig } from "@/config/site";
 
 export function BackgroundMusic() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [playing, setPlaying] = useState(false);
+
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+
+    audio.play()
+      .then(() => setPlaying(true))
+      .catch(() => setPlaying(false));
+  }, []);
 
   if (!siteConfig.backgroundMusicSrc) return null;
 

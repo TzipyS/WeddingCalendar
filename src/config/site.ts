@@ -16,5 +16,9 @@ export const siteConfig = {
   /** כתובת האתר לשיתוף (תמיד תישלח בקישור, גם מ-localhost) */
   publicSiteUrl: "https://wedding-pndb.vercel.app/",
   /** מוזיקת רקע — שימו קובץ MP3 בתיקיית public/ (למשל music.mp3). null לביטול */
-  backgroundMusicSrc: "/music.mp3" as string | null,
+  backgroundMusicSrc: encodeURI("/משה קליין (חדד) - דבר נאה ומתקבל.mp3") as string | null,
+  /** אימייל TzipyS לפניות לידים (Gmail — שדה "אל") */
+  developerEmail: "",
+  /** נושא מייל לידים מ-Gmail */
+  developerLeadsSubject: "התענינות על התר - -ללידים חדשים",
 } as const;
